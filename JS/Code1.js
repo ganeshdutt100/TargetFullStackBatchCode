@@ -20,11 +20,11 @@
 // y += 1;
 // console.log(y);
 
-let fun = (mony) => {
-  let amount = Math.floor(mony / 1.5);
-  console.log(amount);
+// let fun = (mony) => {
+//   let amount = Math.floor(mony / 1.5);
+//   console.log(amount);
 
-  // let interest = amount * 0.05;
-  // return mony + interest;
-};
-fun(34);
+//   // let interest = amount * 0.05;
+//   // return mony + interest;
+// };
+// fun(34);
