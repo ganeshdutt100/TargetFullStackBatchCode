@@ -6,8 +6,12 @@
     <title>Document</title>
   </head>
   <body>
-    <!-- <script src="problem4.js"></script> -->
-    <script src="BMI.js"></script>
-    <script src="Code2.js"></script>
+    <script>
+      let leapYear = 2023;
+
+      if ((leapYear % 4 == 0 && leapYear % 100 != 0) || leapYear % 400 == 0) {
+        console.log(`${leapYear} is a leap year.`);
+      }
+    </script>
   </body>
 </html>
