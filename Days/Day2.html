@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let current_bottles = 100;
+
+      function Lyrics() {
+        while (current_bottles > 0) {
+          let after_bottles = current_bottles - 1;
+          console.log(
+            current_bottles +
+              " bottles of beer on the wall ," +
+              current_bottles +
+              " bottles of beer"
+          );
+          console.log(
+            "Take one down and pass it around , " +
+              after_bottles +
+              " bottles of beer on the wall"
+          );
+          current_bottles--;
+        }
+
+        console.log(
+          "No more bottles of beer on the wall, no more bottles of beer."
+        );
+        console.log(
+          "Go to the store and buy some more, 99 bottles of beer on the wall."
+        );
+      }
+      Lyrics();
+    </script>
+  </body>
+</html>
