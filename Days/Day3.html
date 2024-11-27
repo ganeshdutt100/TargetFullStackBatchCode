@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <form id="passwordForm">
+      <label for="password">Enter Password:</label>
+      <input type="password" id="password" name="password" required /> <br />
+      <button type="button" onclick="checkPassword()">Validate</button>
+      <p id="message"></p>
+    </form> -->
+
+    <script>
+      function validatePassword(password) {
+        const minLength = 8;
+        const maxLength = 16;
+
+        const hasUppercase = /[A-Z]/;
+        const hasLowercase = /[a-z]/;
+        const hasNumber = /[0-9]/;
+        const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/;
+
+        if (password.length < minLength || password.length > maxLength) {
+          return "Password must be between 8 and 16 characters long.";
+        }
+
+        if (!hasUppercase.test(password)) {
+          return "Password must contain at least one uppercase letter.";
+        }
+        if (!hasLowercase.test(password)) {
+          return "Password must contain at least one lowercase letter.";
+        }
+        if (!hasNumber.test(password)) {
+          return "Password must contain at least one number.";
+        }
+        if (!hasSpecialChar.test(password)) {
+          return "Password must contain at least one specialChar .";
+        }
+        return "Password is valid!.";
+      }
+
+      const password = "P@assword12";
+      console.log(validatePassword(password));
+
+      //   function checkPassword() {
+      //     let password = document.getElementById("password").value;
+
+      //     const message = validatePassword(password);
+      //     document.getElementById("message").innerText = message;
+      //   }
+    </script>
+  </body>
+</html>
