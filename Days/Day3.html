@@ -3,26 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>passwordValidation</title>
   </head>
   <body>
-    <!-- <form id="passwordForm">
+    <form id="passwordForm">
       <label for="password">Enter Password:</label>
       <input type="password" id="password" name="password" required /> <br />
       <button type="button" onclick="checkPassword()">Validate</button>
       <p id="message"></p>
-    </form> -->
+    </form>
 
     <script>
       function validatePassword(password) {
         const minLength = 8;
         const maxLength = 16;
 
+        //Regular Expressions for validation
         const hasUppercase = /[A-Z]/;
         const hasLowercase = /[a-z]/;
         const hasNumber = /[0-9]/;
         const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/;
 
+        //validation checks
         if (password.length < minLength || password.length > maxLength) {
           return "Password must be between 8 and 16 characters long.";
         }
@@ -42,15 +44,17 @@
         return "Password is valid!.";
       }
 
+      //Example Usage:
       const password = "P@assword12";
       console.log(validatePassword(password));
 
-      //   function checkPassword() {
-      //     let password = document.getElementById("password").value;
+      // function validatePassword
+      function checkPassword() {
+        let password = document.getElementById("password").value;
 
-      //     const message = validatePassword(password);
-      //     document.getElementById("message").innerText = message;
-      //   }
+        const message = validatePassword(password);
+        document.getElementById("message").innerText = message;
+      }
     </script>
   </body>
 </html>
