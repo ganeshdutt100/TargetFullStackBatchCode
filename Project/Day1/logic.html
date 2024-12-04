@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let a = parseFloat(prompt("Enter your first Number "));
+      let b = parseFloat(prompt("Enter your second Number "));
+      //   let b = 20;
+
+      let operator = "+";
+
+      let result;
+      switch (operator) {
+        case "+":
+          result = a + b;
+          break;
+        case "-":
+          result = a - b;
+          break;
+        case "*":
+          result = a * b;
+          break;
+        case "/":
+          result = a / b;
+          break;
+      }
+      console.log("Result : " + result);
+    </script>
+  </body>
+</html>

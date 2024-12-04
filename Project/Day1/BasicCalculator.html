@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .cal {
+        width: 200px;
+        background-color: lightblue;
+        text-align: center;
+        padding: 10px;
+      }
+      input {
+        width: 80px;
+        border-radius: 10px;
+        padding: 10px 5px;
+        border: none;
+      }
+      button {
+        /* padding: 10px; */
+        height: 30px;
+        width: 30px;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 20px;
+        margin-right: 10px;
+        text-align: center;
+      }
+      button:hover {
+        background-color: darkblue;
+        color: white;
+      }
+      #result {
+        font-size: 24px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cal">
+      <input type="number" id="input1" placeholder="First Value" />
+      <input type="number" id="input2" placeholder="Second Value" /> <br />
+      <br />
+
+      <button data-operation="+">+</button>
+      <button data-operation="-">-</button>
+      <button data-operation="*">*</button>
+      <button data-operation="/">/</button>
+      <p>Result : <span id="result"> 0</span></p>
+    </div>
+
+    <script>
+      const buttons = document.querySelectorAll("button");
+      const output = document.querySelector("#result");
+
+      buttons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          // console.log(btn.innerHTML);
+
+          let num1 = parseFloat(document.getElementById("input1").value) || 0;
+          let num2 = parseFloat(document.getElementById("input2").value) || 0;
+
+          if (num1 == "" || num2 == "") {
+            output.textContent = "Please enter valid numbers!";
+            return;
+          }
+
+          let operation = btn.getAttribute("data-operation");
+
+          let finalResult = 0;
+          switch (operation) {
+            case "+":
+              finalResult = num1 + num2;
+              break;
+            case "-":
+              finalResult = num1 - num2;
+              break;
+            case "*":
+              finalResult = num1 * num2;
+              break;
+            case "/":
+              if (num2 === 0) {
+                output.textContent = "Cannot divide by zero!";
+                return;
+              }
+              finalResult = num1 / num2;
+              break;
+            default:
+              console.log("Invalid operation");
+              return;
+          }
+
+          output.textContent = finalResult;
+          // console.log(typeof num1, typeof num2);
+        });
+      });
+    </script>
+  </body>
+</html>
