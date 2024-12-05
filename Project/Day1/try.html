@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <button>Hide containt</button>
+    <ul>
+      <li>list 1</li>
+      <li>list 2</li>
+      <li>list 3</li>
+      <li>list 4</li>
+    </ul>
+    <script>
+      $("li:even").css("color", "red");
+      $("li:odd").css("color", "blue");
+
+      $("p").html("hello").css({
+        color: "blue",
+        "font-size": "20px",
+        "text-decoration": "underline",
+        "text-transform": "uppercase",
+        "background-color": "yellow",
+      });
+
+      $("button").click(() => {
+        $("p").text($("p").text() === "Light" ? "Dark" : "Light");
+      });
+    </script>
+  </body>
+</html>
