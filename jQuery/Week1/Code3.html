@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <style>
+      .para {
+        background-color: yellow;
+        padding: 10px;
+        border: 1px solid black;
+        cursor: pointer;
+        transition: background-color 0.5s;
+      }
+      .box-shadow {
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+      }
+      #text {
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+      }
+      .highlight {
+        background-color: red;
+        color: white;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id.</p>
+
+    <button>Click me</button>
+    <button>Click me</button>
+    <button>Click me</button>
+    <button>Click me</button>
+    <button>Click me</button>
+
+    <p id="text">Click me to toggle Style!</p>
+    <h4 style="color: red; font-size: 18px">Lorem ipsum dolor sit amet.</h4>
+
+    <img
+      src="https://img.freepik.com/free-photo/woman-with-computer_1303-5922.jpg?ga=GA1.1.1872758581.1724841441&semt=ais_hybrid"
+      alt=""
+      width="100px"
+    />
+    <button id="hideBtn">Hide</button>
+    <button id="showBtn">Show</button>
+    <!-- <button id="fadeInBtn">Fade_in</button> -->
+
+    <p id="fadeInPara" style="display: none">Fading Text</p>
+    <button id="fadeBtn">Fade in</button>
+    <button id="fadeOutBtn">Fade out</button>
+    <script>
+      $("#fadeBtn").click(function () {
+        $("#fadeInPara").fadeIn(); // Text ko smoothly appear karega
+      });
+      $("#fadeOutBtn").click(function () {
+        $("#fadeInPara").fadeOut(); // Text ko smoothly appear karega
+      });
+      //   $("#fadeOutBtn").scroll(function () {
+      //     $("#fadeInPara").fadeOut(); // Text ko smoothly appear karega
+      //   });
+      //   $("#hideBtn").click(function () {
+      //     $("img").hide();
+      //   });
+      //   $("#showBtn").click(function () {
+      //     $("img").show();
+      //   });
+
+      //   let font = $("#text").css("font-size");
+      //   console.log(font);
+
+      //   $("#text").addClass("highlight");
+      //   $("#text").removeClass("highlight");
+      //   $("h4").removeAttr("style");
+      //   $("h4").css({
+      //     color: "blue",
+      //     fontSize: "20px",
+      //   });
+      //   $("#text").click(function () {
+      //     $(this).toggleClass("highlight");
+      //   });
+      //   $("p").text("hello");
+      //   $("p").removeClass("para");
+      //   $("button").html("<em>hey</em>");
+    </script>
+  </body>
+</html>
