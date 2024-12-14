@@ -1,0 +1,33 @@
+/* Add this to your CSS file */
+#navbarSupportedContent {
+    position: fixed;
+    top: 50px;
+    left: -100%; /* Start from off-screen left */
+    height: 100vh;
+    width: 250px; /* Adjust width as needed */
+    background-color: rgba(0, 0, 0, 0.548);
+    backdrop-filter: blur(20px);
+    transition: 0.2s ease-in-out;
+    z-index: 1000;
+  }
+  
+  #navbarSupportedContent.show {
+    left: 0; /* Slide in from left */
+  }
+  
+  /* For mobile devices */
+  @media (max-width: 991.98px) {
+    .navbar-collapse {
+      transform: translateX(-100%);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 250px;
+      height: 100vh;
+      transition: transform 0.3s ease-in-out;
+    }
+  
+    .navbar-collapse.show {
+      transform: translateX(0);
+    }
+  }
