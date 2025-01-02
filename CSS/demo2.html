@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+      *,
+      :before,
+      :after {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Source Sans Pro", sans-serif;
+        font-weight: 200;
+        font-size: 16px;
+        line-height: 1.458;
+        background: #fefefe;
+      }
+
+      h1 {
+        font-size: 2em;
+        margin: 0;
+        line-height: 1;
+      }
+
+      .body {
+        -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+        max-width: 320px;
+        margin: 0 auto;
+      }
+
+      .navbar-brand,
+      .sr-only {
+        display: none;
+      }
+
+      .navbar-toggle {
+        display: block;
+        position: relative;
+        background: #dbdcdf;
+        padding: 4px;
+        cursor: pointer;
+        border: 0px;
+        margin: 0;
+        border-radius: 0 0 12px 0;
+        min-height: 50px;
+        min-width: 50px;
+        box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.2);
+        outline: none;
+      }
+
+      .navbar-toggle .icon-bar {
+        background: #868d97;
+        height: 6px;
+        width: 30px;
+        display: block;
+        margin-top: 5px;
+        border-radius: 3px;
+        position: relative;
+        transition: all 0.3s ease;
+      }
+
+      .navbar-toggle .icon-bar:first-of-type {
+        margin-top: 0;
+      }
+
+      .navbar-toggle .icon-bar:after {
+        content: "";
+        width: 6px;
+        height: 6px;
+        background: #868d97;
+        position: absolute;
+        right: -8px;
+        border-radius: 3px;
+      }
+
+      .close {
+        display: none;
+        position: absolute;
+        right: 12px;
+        top: 12px;
+        font-size: 24px;
+        font-weight: 900;
+        color: #d0112b;
+        border: 4px solid #d0112b;
+        padding: 2px;
+        border-radius: 100%;
+        width: 40px;
+        height: 40px;
+        line-height: 29px;
+      }
+
+      .site-nav {
+        background: #d0112b;
+        border-radius: 0;
+        border: none;
+        margin: 0 auto;
+        width: 100%;
+        font-size: 24px;
+        font-weight: 700;
+        color: #ffffff;
+        text-transform: uppercase;
+        overflow-y: visible;
+        position: relative;
+        max-height: 50px;
+        max-width: 480px;
+        box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar-mobile {
+        display: inline-block;
+        position: relative;
+      }
+
+      .collapse {
+        visibility: hidden;
+      }
+
+      .open {
+        visibility: visible;
+      }
+
+      .navbar {
+        max-width: 50vw;
+        position: absolute;
+        top: 30px;
+        z-index: 200;
+      }
+
+      ul {
+        margin: 0;
+        padding: 0;
+      }
+
+      .navbar li {
+        text-align: left;
+        display: block;
+        min-height: 50px;
+        line-height: 50px;
+        margin-left: 40px;
+      }
+
+      .navbar li a,
+      .navbar li a:visited {
+        color: #868d97;
+        text-decoration: none;
+      }
+
+      .navbar li a:hover {
+        color: #d0112b;
+      }
+
+      .content {
+        max-width: 480px;
+        color: #fefefe;
+        margin: 0 auto;
+        background: #333;
+        padding: 32px 20px;
+      }
+
+      .content h1 {
+        color: #7d7d7d;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="body">
+      <nav class="site-nav">
+        <div class="container">
+          <div class="navbar-mobile">
+            <button
+              type="button"
+              class="navbar-toggle"
+              data-toggle="collapse"
+              data-target=".navbar-ex1-collapse"
+            >
+              <div class="close">X</div>
+              <span class="icon-bar bar-1"></span>
+              <span class="icon-bar bar-2"></span>
+              <span class="icon-bar bar-3"></span>
+            </button>
+          </div>
+
+          <nav class="[ collapse navbar-collapse navbar-ex1-collapse ]">
+            <ul class="navbar">
+              <li><a href="">Home</a></li>
+              <li><a href="">About</a></li>
+              <li><a href="">Contact</a></li>
+              <li><a href="">Blog</a></li>
+            </ul>
+          </nav>
+        </div>
+      </nav>
+      <!--- end nav -->
+
+      <article class="content">
+        <h1>Put our experience to work for you</h1>
+        <p>
+          The technicians at The Top Shop Auto Repair are ASE certified,
+          specializing in Toyota and Lexus repair and electronic diagnostics.
+          With 20 years of professional automotive experience, we work on all
+          makes and models. From oil and filter changes to major engine repairs,
+          you can count on us for affordable service.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+          pharetra metus non finibus malesuada. Donec sed felis eget sem
+          convallis elementum eu vel est. Donec vulputate dictum massa.
+        </p>
+      </article>
+    </div>
+    <script>
+      $(document).ready(function () {
+        $(".navbar-toggle").mouseenter(function () {
+          if ($(this).hasClass("active")) {
+          } else {
+            $(".navbar-toggle").animate(
+              {
+                width: "60px",
+                height: "60px",
+              },
+              200,
+              function () {
+                // anim complete
+              }
+            );
+          }
+        });
+
+        $(".navbar-toggle").mouseleave(function () {
+          if ($(this).hasClass("active")) {
+          } else {
+            $(".navbar-toggle").animate(
+              {
+                width: "50px",
+                height: "50px",
+              },
+              200,
+              function () {
+                // anim complete
+              }
+            );
+          }
+        });
+
+        $(".navbar-toggle").click(function () {
+          var $this = $(this);
+
+          if ($(".collapse").hasClass("open")) {
+            $(".navbar > li").slideUp("fast");
+            $this.removeClass("active");
+            $(".collapse").removeClass("open");
+            $this.animate(
+              {
+                width: "50px",
+                height: "50px",
+                borderBottomRightRadius: "12px",
+              },
+              200,
+              function () {
+                // anim complete
+              }
+            );
+            $(".close").hide("fast");
+            setTimeout(function () {
+              $this.children(".icon-bar").show("fast");
+            }, 200);
+          } else {
+            $this.delay("100").addClass("active");
+            //$('.collapse').stop(true).slideDown("fast");
+            $this.children(".icon-bar").hide();
+            $this.delay("220").animate(
+              {
+                width: "300px",
+                height: "275px",
+                borderBottomRightRadius: "275px",
+              },
+              200,
+              function () {
+                // anim complete
+              }
+            );
+            setTimeout(function () {
+              $(".navbar > li").slideDown("fast");
+              $(".collapse").addClass("open");
+              $(".close").show("fast");
+            }, 500);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

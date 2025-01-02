@@ -4,11 +4,10 @@ const Home = () => {
   return (
     <div>
       <div>
-        {/* Tabs navs */}
-        <ul className="nav nav-tabs mb-3" id="myTab" role="tablist">
-          <li className="nav-item" role="presentation">
+        <ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
             <button
-              className="nav-link active text-danger"
+              class="nav-link active text-danger"
               id="tab1-tab"
               data-bs-toggle="tab"
               data-bs-target="#tab1"
@@ -20,9 +19,9 @@ const Home = () => {
               Tab 1
             </button>
           </li>
-          <li className="nav-item" role="presentation">
+          <li class="nav-item" role="presentation">
             <button
-              className="nav-link text-danger"
+              class="nav-link text-danger"
               id="tab2-tab"
               data-bs-toggle="tab"
               data-bs-target="#tab2"
@@ -34,9 +33,9 @@ const Home = () => {
               Tab 2
             </button>
           </li>
-          <li className="nav-item" role="presentation">
+          <li class="nav-item" role="presentation">
             <button
-              className="nav-link"
+              class="nav-link"
               id="tab3-tab"
               data-bs-toggle="tab"
               data-bs-target="#tab3"
@@ -50,9 +49,9 @@ const Home = () => {
           </li>
         </ul>
         {/* Tabs content */}
-        <div className="tab-content" id="myTabContent">
+        <div class="tab-content" id="myTabContent">
           <div
-            className="tab-pane fade show active text-danger"
+            class="tab-pane fade show active text-danger"
             id="tab1"
             role="tabpanel"
             aria-labelledby="tab1-tab"
@@ -60,7 +59,7 @@ const Home = () => {
             Tab 1 content
           </div>
           <div
-            className="tab-pane fade text-danger"
+            class="tab-pane fade text-danger"
             id="tab2"
             role="tabpanel"
             aria-labelledby="tab2-tab"
@@ -68,7 +67,7 @@ const Home = () => {
             Tab 2 content
           </div>
           <div
-            className="tab-pane fade"
+            class="tab-pane fade"
             id="tab3"
             role="tabpanel"
             aria-labelledby="tab3-tab"

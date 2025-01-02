@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="weight" placeholder="enter your weight" /> <br />
+    <br />
+    <input type="text" id="height" placeholder="Enter your height" />
+    <br /><br />
+    <button onclick="calculateBMI()">Calculate BMI</button>
+    <p id="result">Loading...</p>
+
+    <script>
+      function calculateBMI() {
+        const weight = parseFloat(document.getElementById("weight").value);
+        const height = parseFloat(document.getElementById("height").value);
+
+        if (!weight || !height || weight <= 0 || height <= 0) {
+          document.getElementById("result").textContent =
+            "Invalid input. Please enter a positive number for weight and height.";
+          return;
+        }
+        const heightInMeters = height / 100;
+        const bmi = (weight / (heightInMeters * heightInMeters)).toFixed(2);
+
+        let category = "";
+
+        if (bmi <= 18.5) {
+          category = "Underweight";
+        } else if (bmi > 18.5 && bmi <= 24.9) {
+          category = "Normal weight";
+        } else if (bmi > 24.9 && bmi <= 29.9) {
+          category = "Overweight";
+        } else {
+          category = "Obese";
+        }
+
+        document.getElementById(
+          "result"
+        ).textContent = `Your BMI is ${bmi}. You are ${category}.`;
+      }
+    </script>
+  </body>
+</html>

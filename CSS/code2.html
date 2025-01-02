@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap');
+@import "https://unpkg.com/normalize.css";
+@import "https://unpkg.com/open-props/normalize.min.css";
+@import "https://unpkg.com/open-props/open-props.min.css";
+
+*,
+*:after,
+*:before {
+	box-sizing: border-box;
+}
+
+body {
+	min-height: 100vh;
+	font-family:  'Inter', sans-serif, system-ui;
+  background: var(--surface-2);
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  overflow-x: hidden;
+}
+
+:root {
+  --content: 66ch;
+  --gutter: 1rem;
+  --gap: 0rem;
+}
+
+header, main {
+  width: var(--content);
+  max-width: calc(100vw - (2 * var(--gutter)));
+  margin: 0 auto;
+}
+
+footer {
+  padding: 2rem;
+  font-size: 0.875rem;
+}
+
+header {
+  min-height: 100vh;
+  display: grid;
+  align-content: center;
+}
+
+h1 {
+  font-weight: 900;
+  font-family: impact;
+  font-size: calc(var(--font-size-fluid-3) * 2.5);
+  line-height: 1;
+}
+
+.sr-only {
+	position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+header {
+  position: relative;
+}
+
+header img {
+  position: absolute;
+  left: 25%;
+  top: 15%;
+  z-index: 1;
+  opacity: 0.65;
+  filter: saturate(0.5);
+  clip-path: polygon(0 15%, 75% 0, 100% 32%, 80% 100%, 0 67%);
+}
+
+h1 {
+  z-index: 2;
+  position: relative;
+}
+
+h1 span:nth-of-type(2) {
+  color: transparent;
+  -webkit-text-stroke: 0.25rem var(--text-1);
+}
+
+section {
+  display: grid;
+  gap: var(--gutter);
+  grid-template-columns:
+    auto
+    1fr;
+  align-items: center;
+  min-height: 100vh;
+}
+
+p:first-line {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+section p {
+  z-index: 2;
+  background: hsl(210 17% 98% / 0.65);
+  padding: 1rem;
+  color: var(--text-1);
+  backdrop-filter: blur(4px);
+  font-size: 1rem;
+}
+
+@media(prefers-color-scheme: dark) {
+  section p {
+    background: hsl(210 11% 15% / 0.65);
+  }
+}
+
+section img {
+  grid-column: 1;
+  width: 260px;
+  max-width: 20vw;
+  clip-path: polygon(0 10%, 10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%);
+  scale: 1.5;
+}
+
+section:nth-of-type(even) {
+  grid-template-columns:
+    1fr
+    auto;
+  grid-auto-flow: dense;
+}
+section:nth-of-type(even) img {
+  grid-column: 2;
+}
+section:nth-of-type(even) p {
+  grid-column: 1;
+}
+
+
+section {
+  --x: -100%;
+}
+section:nth-of-type(even) {
+  --x: 100%;
+}
+
+section img {
+  view-timeline: --item;
+  animation: item-reveal both ease-in;
+  animation-timeline: --item;
+  animation-delay: cover 10%;
+  animation-end-delay: cover 35%;
+  animation-range: cover 10% cover 35%;
+}
+
+section img {
+  --y: 0;
+}
+section p {
+  --x: 0;
+  --y: 50%;
+  view-timeline: --item;
+  animation: item-reveal both ease-out;
+  animation-timeline: --item;
+  animation-delay: cover 35%;
+  animation-end-delay: cover 50%;
+  animation-range: cover 35% cover 50%;
+  position: sticky;
+  bottom: 40%;
+}
+
+@keyframes item-reveal {
+  0% {
+    opacity: 0;
+    translate: var(--x, 0) var(--y, 0);
+  }
+}
+
+.ring-wrapper {
+  --char-count: 19;
+  --inner-angle: calc((360 / var(--char-count, 19)) * 1deg);
+  --character-width: 1.0;
+  --radius: calc((var(--character-width, 1.0) / 0.32469946920468346) * -1ch);
+  --font-size: 1.5rem;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: calc((var(--character-width, 1.0) / 0.32469946920468346) * 3.5ch);
+  width: calc((var(--character-width, 1.0) / 0.32469946920468346) * 3.5ch);
+  translate: 0% 0%;
+  display: grid;
+  place-items: center;
+  z-index: 10;
+  border: calc(var(--character-width) * 2rem) solid var(--surface-2);
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+.ring {
+  font-family: monospace;
+  text-transform: uppercase;
+  font-size: calc(var(--font-size, 1) * 1rem);
+  animation: rotation 6s both linear;
+  position: relative;
+  animation-timeline: scroll(root);
+}
+.char {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform:
+    translate(-50%, -50%)
+    rotate(calc(var(--inner-angle) * var(--char-index)))
+    translateY(var(--radius));
+}
+@keyframes rotation {
+  to {
+    rotate: 720deg;
+  }
+}
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://picsum.photos/400/400?random=1" alt="" width="400" height="400" />
+    <h1>
+      <span aria-hidden="true">Some</span>
+      <span aria-hidde="true">fancy</span>
+      <span aria-hidden="true">website</span>
+      <span class="sr-only">Some fancy website</span>
+    </h1>
+  </header>
+  <main>
+    <section>
+      <img src="https://picsum.photos/400/400?random=1" alt="" width="200" height="200">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum consequuntur accusamus quaerat corrupti quam consequatur modi saepe vitae, obcaecati veritatis dolorum officia itaque inventore illum quae sint minus totam magnam!</p>
+    </section>
+    <section>
+      <img src="https://picsum.photos/400/400?random=2" alt="" width="200" height="200">
+      <p>Aut veritatis perspiciatis nulla natus, possimus laborum nam perferendis magni debitis id accusantium consequuntur laboriosam reprehenderit voluptas vel magnam error. Pariatur sit amet, aliquid illo quas alias reprehenderit quibusdam velit.</p>
+    </section>
+    <section>
+      <img src="https://picsum.photos/400/400?random=3" alt="" width="200" height="200">
+      <p>Necessitatibus ipsa iste consectetur provident in blanditiis sapiente consequuntur! Sit omnis odit nihil quam totam voluptates laudantium quis. Quo recusandae voluptatibus ipsa accusantium modi neque molestias, magnam facilis unde. Dolores!</p>
+    </section>
+    <section>
+      <img src="https://picsum.photos/400/400?random=4" alt="" width="200" height="200">
+      <p>Eum numquam odit, quaerat repellendus quidem asperiores, itaque officiis quam sequi, temporibus dolorum. Molestias, accusamus aspernatur officia placeat natus fugit, iusto voluptas omnis porro exercitationem, distinctio sit reiciendis tempora vitae?</p>
+    </section>
+    <section>
+      <img src="https://picsum.photos/400/400?random=5" alt="" width="200" height="200">
+      <p>Animi aliquid reiciendis voluptates velit dolor debitis ipsum quam odio vitae? Eligendi facilis nobis voluptate tenetur incidunt qui laudantium animi totam suscipit est veniam obcaecati nam hic, mollitia quis nisi.</p>
+    </section>
+    <section>
+      <img src="https://picsum.photos/400/400?random=6" alt="" width="200" height="200">
+      <p>Blanditiis recusandae, unde voluptate minus reprehenderit dignissimos nesciunt sint fugit tempora alias doloremque consequatur beatae numquam possimus ex perferendis non quod, eaque nobis laboriosam officiis. A in inventore consectetur voluptates.</p>
+    </section>
+    <section>
+      <img src="https://picsum.photos/400/400?random=7" alt="" width="200" height="200">
+      <p>Quod quam dolorem debitis esse libero aut, aliquid repellendus. Totam, facere? Molestias dignissimos numquam adipisci voluptates voluptatum eos error explicabo itaque quod quam? Eum omnis ipsum commodi, eaque veniam vel?</p>
+    </section>
+    <section>
+      <img src="https://picsum.photos/400/400?random=8" alt="" width="200" height="200">
+      <p>Nemo, dignissimos officiis, ipsum nulla suscipit aperiam ratione dicta quos sapiente sed at molestiae. Autem tempora iure dignissimos veritatis velit cumque, delectus rerum, dicta nobis accusantium veniam nostrum nulla consequatur.</p>
+    </section>
+    <section>
+      <img src="https://picsum.photos/400/400?random=9" alt="" width="200" height="200">
+      <p>Neque, ipsum, at illo harum ut cupiditate adipisci unde quis, illum veniam laboriosam. Quasi adipisci nemo perferendis eligendi beatae sunt earum quaerat, soluta odit perspiciatis quibusdam recusandae? Quia, dolorum. Quas.</p>
+    </section>
+    <section>
+      <img src="https://picsum.photos/400/400?random=10" alt="" width="200" height="200">
+      <p>Quod praesentium natus ullam recusandae soluta quidem aliquid? Accusamus aspernatur sed odit a est quisquam repellat nihil nobis, placeat maxime. Cum maiores minus vero facilis dolorem sit ab dolores eius?</p>
+    </section>
+  </main>
+  <footer>Thanks for stopping by! 👋</footer>
+  <div class="ring-wrapper">
+  
+    <div class="ring" style="--char-count:18; --font-size:1.5; --character-width:1; --radius:calc( (1 / 0.324699) * -1ch );"><span aria-hidden="true" class="char" style="--char-index: 0;">S</span><span aria-hidden="true" class="char" style="--char-index: 1;">c</span><span aria-hidden="true" class="char" style="--char-index: 2;">r</span><span aria-hidden="true" class="char" style="--char-index: 3;">o</span><span aria-hidden="true" class="char" style="--char-index: 4;">l</span><span aria-hidden="true" class="char" style="--char-index: 5;">l</span><span aria-hidden="true" class="char" style="--char-index: 6;"> </span><span aria-hidden="true" class="char" style="--char-index: 7;">•</span><span aria-hidden="true" class="char" style="--char-index: 8;"> </span><span aria-hidden="true" class="char" style="--char-index: 9;">S</span><span aria-hidden="true" class="char" style="--char-index: 10;">c</span><span aria-hidden="true" class="char" style="--char-index: 11;">r</span><span aria-hidden="true" class="char" style="--char-index: 12;">o</span><span aria-hidden="true" class="char" style="--char-index: 13;">l</span><span aria-hidden="true" class="char" style="--char-index: 14;">l</span><span aria-hidden="true" class="char" style="--char-index: 15;"> </span><span aria-hidden="true" class="char" style="--char-index: 16;">•</span><span aria-hidden="true" class="char" style="--char-index: 17;"> </span><span class="sr-only">Scroll • Scroll • </span></h>
+    </div>
+</body>
+</html>
